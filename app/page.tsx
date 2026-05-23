@@ -8,12 +8,12 @@ export default function Home() {
       <Header />
 
       {/* Main content */}
-      <main className="flex-1 px-5 pt-16 pb-8">
+      <main className="w-full mx-auto px-5 md:px-12 pt-16 pb-8">
         <VideoSplit />
       </main>
 
       {/* Footer wrapper */}
-      <div className="w-full mx-auto px-5">
+      <div className="w-full mx-auto px-5 md:px-12">
         <Footer />
       </div>
     </div>

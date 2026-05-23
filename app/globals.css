@@ -1,86 +1,18 @@
-/*@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400&display=swap");*/
 @import "tailwindcss";
 
-:root {
-    /* Brand */
-    --clivo-black: #0a0a0a;
-    --clivo-white: #fafafa;
-    --clivo-accent: #0a0a0a;
-    --clivo-accent-hover: #1a1a1a;
-    --clivo-muted: #f5f5f4;
-    --clivo-muted-2: #e8e8e6;
-    --clivo-border: rgba(10, 10, 10, 0.08);
-    --clivo-border-hover: rgba(10, 10, 10, 0.16);
-    --clivo-text-primary: #0a0a0a;
-    --clivo-text-secondary: #6b6b6b;
-    --clivo-text-tertiary: #9e9e9e;
-    --clivo-surface: #ffffff;
-    --clivo-surface-raised: #ffffff;
-    --clivo-bg: #fafafa;
-    --clivo-shadow-sm:
-        0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
-    --clivo-shadow-md:
-        0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
-    --clivo-shadow-lg:
-        0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
-    --clivo-radius-sm: 8px;
-    --clivo-radius-md: 12px;
-    --clivo-radius-lg: 18px;
-    --clivo-radius-xl: 24px;
-    --clivo-font: "DM Sans", -apple-system, sans-serif;
-    --clivo-mono: "DM Mono", monospace;
+@source "../";
+
+@theme {
+    --font-sans: "DM Sans", system-ui, sans-serif;
+    --font-mono: "DM Mono", monospace;
+
+    --height-13: 3.25rem;
+
+    --animate-fadeUp: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    --animate-fadeIn: fadeIn 0.3s ease both;
+    --animate-spin: spin 0.9s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --clivo-black: #f0f0f0;
-        --clivo-white: #111111;
-        --clivo-accent: #f0f0f0;
-        --clivo-accent-hover: #d0d0d0;
-        --clivo-muted: #1c1c1c;
-        --clivo-muted-2: #252525;
-        --clivo-border: rgba(255, 255, 255, 0.08);
-        --clivo-border-hover: rgba(255, 255, 255, 0.16);
-        --clivo-text-primary: #f0f0f0;
-        --clivo-text-secondary: #999999;
-        --clivo-text-tertiary: #666666;
-        --clivo-surface: #181818;
-        --clivo-surface-raised: #1e1e1e;
-        --clivo-bg: #111111;
-        --clivo-shadow-sm:
-            0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-        --clivo-shadow-md:
-            0 4px 16px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3);
-        --clivo-shadow-lg:
-            0 12px 40px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    /*padding: 0;*/
-}
-
-html {
-    font-family: var(--clivo-font);
-    background-color: var(--clivo-bg);
-    color: var(--clivo-text-primary);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-    background-color: var(--clivo-bg);
-    color: var(--clivo-text-primary);
-    line-height: 1.6;
-}
-
-/* Keyframe animations */
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -101,53 +33,92 @@ body {
     }
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
-@keyframes pulse-ring {
-    0% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-    50% {
-        transform: scale(1.06);
-        opacity: 0.15;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.4;
+/* ── Clivo design tokens ─────────────────────────────────────────────────── */
+
+:root {
+    --clivo-bg: #fafafa;
+    --clivo-surface: #ffffff;
+    --clivo-surface-raised: #ffffff;
+    --clivo-muted: #f5f5f4;
+    --clivo-muted-2: #e8e8e6;
+    --clivo-border: rgba(10, 10, 10, 0.08);
+    --clivo-border-hover: rgba(10, 10, 10, 0.18);
+    --clivo-text-primary: #0a0a0a;
+    --clivo-text-secondary: #6b6b6b;
+    --clivo-text-tertiary: #a3a3a3;
+    --clivo-shadow-sm:
+        0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+    --clivo-shadow-md:
+        0 4px 16px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.04);
+    --clivo-radius-sm: 8px;
+    --clivo-radius-md: 12px;
+    --clivo-radius-lg: 18px;
+    --clivo-radius-xl: 24px;
+    --clivo-font: "DM Sans", system-ui, sans-serif;
+    --clivo-mono: "DM Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --clivo-bg: #111111;
+        --clivo-surface: #1a1a1a;
+        --clivo-surface-raised: #212121;
+        --clivo-muted: #1f1f1f;
+        --clivo-muted-2: #2a2a2a;
+        --clivo-border: rgba(255, 255, 255, 0.08);
+        --clivo-border-hover: rgba(255, 255, 255, 0.18);
+        --clivo-text-primary: #f0f0f0;
+        --clivo-text-secondary: #999999;
+        --clivo-text-tertiary: #666666;
+        --clivo-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+        --clivo-shadow-md:
+            0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3);
     }
 }
 
-.animate-fade-up {
-    animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.animate-fade-up-delay-1 {
-    animation-delay: 0.06s;
-}
-.animate-fade-up-delay-2 {
-    animation-delay: 0.12s;
-}
-.animate-fade-up-delay-3 {
-    animation-delay: 0.18s;
-}
-.animate-fade-up-delay-4 {
-    animation-delay: 0.24s;
+html {
+    font-family: var(--clivo-font);
+    background-color: var(--clivo-bg);
+    color: var(--clivo-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Range input reset */
+body {
+    min-height: 100vh;
+    background-color: var(--clivo-bg);
+    color: var(--clivo-text-primary);
+    line-height: 1.6;
+}
+
+/* ── Animation utility classes ───────────────────────────────────────────── */
+
+.animate-fadeUp {
+    animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease both;
+}
+
+/* ── Custom height ───────────────────────────────────────────────────────── */
+
+.h-13 {
+    height: 3.25rem;
+}
+
+/* ── Range input styling (Tailwind v4 doesn't cover these pseudo-elements) ── */
+
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
-    width: 100%;
-    height: 4px;
-    background: var(--clivo-muted-2);
+    height: 3px;
     border-radius: 99px;
     outline: none;
     cursor: pointer;
@@ -160,20 +131,13 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     background: var(--clivo-text-primary);
     border: 3px solid var(--clivo-bg);
-    box-shadow:
-        0 0 0 1px var(--clivo-border-hover),
-        var(--clivo-shadow-sm);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease;
+    transition: transform 0.15s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
     transform: scale(1.15);
-    box-shadow:
-        0 0 0 1px var(--clivo-border-hover),
-        var(--clivo-shadow-md);
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -182,6 +146,6 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     background: var(--clivo-text-primary);
     border: 3px solid var(--clivo-bg);
-    box-shadow: 0 0 0 1px var(--clivo-border-hover);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
